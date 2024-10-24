@@ -73,6 +73,36 @@ export class AppComponent {
           "email": "isdupont@ftravail.fr",
           "lat": 43.3528932,
           "lng": 5.4466384
+        },
+        {
+          "nom": "Dupont",
+          "prenom": "Jean ",
+          "nomDeVoie": "150 Route Bellombre",
+          "codePostal": "",
+          "commune": "Arles",
+          "email": "jd@ft.fr",
+          "lat": 43.6479652,
+          "lng": 4.7286136
+        },
+        {
+          "nom": "Martin",
+          "prenom": "Marie",
+          "nomDeVoie": "4 Avenue de la République",
+          "codePostal": "",
+          "commune": "Miramas",
+          "email": "mm@ft.fr",
+          "lat": 43.5816073,
+          "lng": 5.0023586
+        },
+        {
+          "nom": "Moussa",
+          "prenom": "Mze",
+          "nomDeVoie": "34 route des Courses",
+          "codePostal": "",
+          "commune": "Cavaillon",
+          "email": "mo@ft.fr",
+          "lat": 43.8336382,
+          "lng": 5.0409865
         }
       ];
   }
