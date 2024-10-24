@@ -1,2 +1,16 @@
 <h1>{{title}}</h1>
-<google-map height="600px" width="800px" [options]="options"> </google-map>
+<google-map id=map height="600px" width="800px" [options]="options">
+@for (pooler of poolers; track pooler) {
+<map-advanced-marker
+#markerElem="mapAdvancedMarker"
+[position]="{ lat: pooler.lat, lng: pooler.lng }"
+[title]="pooler.nom"
+/>
+}
+</google-map>
+<div>
+  <input type="text" [(ngModel)]="nomPooler" placeholder="Jean Martin"/>
+  <input type="text" [(ngModel)]="addressPooler" placeholder="180 Rue René Descartes, 13290 Aix-en-Provence"/>
+  <input type="button" value="Ajoutez mon adresse, je veux FTCovoit!" (click)="codeAddress()">
+</div>
+
