@@ -1,16 +1,80 @@
 <h1>{{title}}</h1>
-<google-map id=map height="600px" width="800px" [options]="options">
-@for (pooler of poolers; track pooler) {
-<map-advanced-marker
-#markerElem="mapAdvancedMarker"
-[position]="{ lat: pooler.lat, lng: pooler.lng }"
-[title]="pooler.nom"
-/>
-}
-</google-map>
-<div>
-  <input type="text" [(ngModel)]="nomPooler" placeholder="Jean Martin"/>
-  <input type="text" [(ngModel)]="addressPooler" placeholder="180 Rue René Descartes, 13290 Aix-en-Provence"/>
-  <input type="button" value="Ajoutez mon adresse, je veux FTCovoit!" (click)="codeAddress()">
+
+
+<div class="center-element2">
+
+<div class="row ">
+  <div class="col-3 col-sm-3 col-lg-3 offset-lg-3 col-xl-3 offset-xl-3">
+  <mat-form-field appearance="outline">
+    <mat-label>Nom</mat-label>
+    <input matInput placeholder="Durand" [(ngModel)]="nom">
+  </mat-form-field>
+</div>
+  <div class="col-3 col-sm-3  col-lg-3 col-xl-3">
+  <mat-form-field appearance="outline">
+    <mat-label>Prénom</mat-label>
+    <input matInput placeholder="Jean" [(ngModel)]="prenom">
+  </mat-form-field>
+  </div>
 </div>
 
+<div class="row ">
+  <div class="col-3 col-sm-3  col-lg-3 offset-lg-3 col-xl-3 offset-xl-3">
+  <mat-form-field appearance="outline">
+    <mat-label>Numéro et nom de la voie</mat-label>
+    <input matInput placeholder="180 Rue René Descartes" [(ngModel)]="nomDeVoie">
+  </mat-form-field>
+  </div>
+
+    <div class="col-3 col-sm-3  col-lg-3 col-xl-3">
+    <mat-form-field appearance="outline">
+    <mat-label>Code postal</mat-label>
+    <input matInput placeholder="13290" [(ngModel)]="codePostal">
+  </mat-form-field>
+    </div>
+</div>
+
+<div class="row ">
+  <div class="col-3 col-sm-3 col-lg-3 offset-lg-3 col-xl-3 offset-xl-3">
+  <mat-form-field appearance="outline">
+    <mat-label>Commune</mat-label>
+    <input matInput placeholder="Aix-en-Provence" [(ngModel)]="commune">
+  </mat-form-field>
+  </div>
+
+  <div class="col-3 col-sm-3  col-lg-3 col-xl-3">
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="jeandurand@francetravail.fr" [(ngModel)]="email">
+  </mat-form-field>
+  </div>
+</div>
+</div>
+<!--p>
+  <mat-form-field appearance="outline">
+    <mat-label>Telephone</mat-label>
+    <input matInput placeholder="06-00-00-00-00">
+
+  </mat-form-field>
+</p-->
+<div class="center-element">
+  <button mat-flat-button (click)="codeAddress()">je m'ajoute, je CoVoit!</button>
+</div>
+<div class="center-element">
+<google-map id=map height="600px" width="800px" [options]="options">
+  @for (pooler of poolers; track pooler){
+  <map-advanced-marker
+  #markerElem="mapAdvancedMarker"
+  [position]="{ lat: pooler.lat, lng: pooler.lng }"
+  [title]="pooler.nom"
+  (mapClick)="onMarkerClick(markerElem,pooler)"
+/>
+  <map-info-window #infoWindow ></map-info-window>
+  }
+</google-map>
+</div>
+
+@for (pooler of poolers; track pooler){
+<div>{{pooler.nom}}</div>
+
+}
